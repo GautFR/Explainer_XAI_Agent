@@ -8,7 +8,7 @@ setup(
     description='Un agent IA pour expliquer des prédictions de modèles ML avec LIME et LangChain',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/ton-github/lime_explainer_agent',
+    url='https://github.com/GautFR/Explainer_XAI_Agent.git',
     packages=find_packages(),
     install_requires=[
         'numpy',
