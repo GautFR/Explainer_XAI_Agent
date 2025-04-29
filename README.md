@@ -5,7 +5,7 @@ Ce package fournit un agent IA LIME et un agent SHAP pour expliquer les prédict
 ## Installation
 
 ```bash
-pip install git+https://github.com/ton-github/lime_explainer_agent.git
+pip install git https://github.com/GautFR/Explainer_XAI_Agent.git
 ```
 
 ## Utilisation
