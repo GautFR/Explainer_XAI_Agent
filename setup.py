@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='lime_explainer_agent',
+    name='explainer_agent',
     version='0.1.0',
     author='Ton Nom',
     author_email='ton.email@example.com',
