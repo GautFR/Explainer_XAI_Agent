@@ -35,7 +35,7 @@ time.sleep(5)  # Allows service to initialize
 ## Installation
 
 ```bash
-pip install git https://github.com/GautFR/Explainer_XAI_Agent.git
+!pip install git https://github.com/GautFR/Explainer_XAI_Agent.git
 ```
 
 ## Utilisation
