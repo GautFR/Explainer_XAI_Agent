@@ -49,7 +49,7 @@ agent.explain_classification(...)
 ```python
 from explainer import ShapExplainerAgent
 agent = ShapExplainerAgent()
-agent.explain_prediction(...)
+agent.explain_classification(...)
 ```
 
 ## Exemple Classification LIME
