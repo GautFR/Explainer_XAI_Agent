@@ -81,12 +81,12 @@ def demo_classification_package():
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
 
-    #Utilisation du package perso
+    # Explication du contexte de notre jeu de donnée
     context = "Il s'agit du jeu de données Iris qui contient des mesures de pétales et de sépales de trois espèces différentes d'iris."
     
-    # Call the method using an instance of the class
-    agent = LimeExplainerAgent() # Create an instance
-    agent.explain_classification( # Call method on the instance
+    # Appel de la méthode de notre package
+    agent = LimeExplainerAgent() # Création de l'instance
+    agent.explain_classification( # Appel de la méthode de l'instance
         X_train, X_test, y_test, model, context,
         class_names_dict=class_names, instance_index=5, num_features=4
     )
