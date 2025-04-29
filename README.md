@@ -2,6 +2,36 @@
 
 Ce package fournit un agent IA LIME et un agent SHAP pour expliquer les prédictions de modèles de Machine Learning en langage naturel.
 
+## Attention: installastion du serveur Ollama obligatoire
+Le package fonctionne grâce à Ollama. Il faut donc initialiser son serveur Ollama afin de pourvoir utilser le package.
+Voici un code pour lancer un serveur local Ollama sur Google Colab.
+
+```bash
+!sudo apt update
+
+!sudo apt install -y pciutils
+
+!curl -fsSL https://ollama.com/install.sh | sh
+```
+
+```python
+import threading
+import subprocess
+import time
+
+def run_ollama_serve():
+    subprocess.Popen(["ollama", "serve"])
+
+thread = threading.Thread(target=run_ollama_serve)
+
+thread.start()
+time.sleep(5)  # Allows service to initialize
+```
+
+```bash
+!ollama pull llama3.2
+```
+
 ## Installation
 
 ```bash
