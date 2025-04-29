@@ -5,7 +5,7 @@ setup(
     version='0.1.0',
     author='Ton Nom',
     author_email='ton.email@example.com',
-    description='Un agent IA pour expliquer des prédictions de modèles ML avec LIME et LangChain',
+    description='Un agent IA pour expliquer des prédictions de modèles ML avec LIME et SHAP',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/GautFR/Explainer_XAI_Agent.git',
