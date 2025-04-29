@@ -1,0 +1,7 @@
+numpy
+pandas
+lime
+shap
+ipython
+langchain-core
+langchain-ollama
