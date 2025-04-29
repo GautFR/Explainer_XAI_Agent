@@ -1,6 +1,6 @@
 # Explainer_XAI_Agent
 
-Ce package fournit un agent IA combinant LIME et LangChain pour expliquer les prédictions de modèles de Machine Learning en langage naturel.
+Ce package fournit un agent IA LIME et un agent SHAP pour expliquer les prédictions de modèles de Machine Learning en langage naturel.
 
 ## Installation
 
