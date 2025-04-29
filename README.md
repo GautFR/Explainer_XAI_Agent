@@ -11,12 +11,12 @@ pip install git https://github.com/GautFR/Explainer_XAI_Agent.git
 ## Utilisation
 
 ```python
-from explainer_agent import LimeExplainerAgent
+from explainer import LimeExplainerAgent
 agent = LimeExplainerAgent()
 agent.explain_classification(...)
 ```
 
 ```python
-from explainer_agent import ShapExplainerAgent
+from explainer import ShapExplainerAgent
 agent = ShapExplainerAgent()
 agent.explain_prediction(...)
