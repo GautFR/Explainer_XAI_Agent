@@ -44,12 +44,24 @@ time.sleep(5)  # Allows service to initialize
 from explainer import LimeExplainerAgent
 agent = LimeExplainerAgent()
 agent.explain_classification(...)
+#ou
+agent.explain_regression(...)
 ```
 
 ```python
 from explainer import ShapExplainerAgent
 agent = ShapExplainerAgent()
 agent.explain_classification(...)
+#ou
+agent.explain_regression(...)
+```
+
+```python
+from explainer import ShapExplainerAgentGlobal
+agent = ShapExplainerAgentGlobal()
+agent.explain_classification(...)
+#ou
+agent.explain_regression(...)
 ```
 
 ## Exemple Classification LIME
