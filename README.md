@@ -71,6 +71,7 @@ from explainer import LimeExplainerAgent
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+import pandas as pd
 
 def demo_classification_package():
     """Démontre l'utilisation de l'agent en classification avec le jeu de données Iris"""
@@ -82,26 +83,49 @@ def demo_classification_package():
     iris = load_iris()
     X = pd.DataFrame(iris.data, columns=iris.feature_names)
     y = pd.Series(iris.target)
-    
-    # Mapping des classes
     class_names = {0: "Setosa", 1: "Versicolor", 2: "Virginica"}
-    
+
     # Split train/test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-    
-    # Entraînement d'un modèle
+
+    # Entraînement du modèle
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
 
-    # Explication du contexte de notre jeu de donnée
-    context = "Il s'agit du jeu de données Iris qui contient des mesures de pétales et de sépales de trois espèces différentes d'iris."
-    
-    # Appel de la méthode de notre package
-    agent = LimeExplainerAgent() # Création de l'instance
-    agent.explain_classification( # Appel de la méthode de l'instance
-        X_train, X_test, y_test, model, context,
-        class_names_dict=class_names, instance_index=5, num_features=4
-    )
+    # Contexte d'explication
+    context = "Jeu de données Iris avec des mesures de sépales/pétales de trois espèces d'iris."
+
+    # Liste des LLM à tester
+    llm_configs = [
+        {"provider": "gemini", "model": "gemini-2.0-flash", "api_key": userdata.get("GOOGLE_API_KEY")},
+        #{"provider": "ollama", "model": "llama3.2", "api_key": None}
+    ]
+
+    # Pour chaque IA
+    for config in llm_configs:
+        print(f"\n--- Explication avec {config['provider'].upper()} ({config['model']}) ---")
+        explainer = LimeExplainerAgent(
+            llm_provider=config["provider"],
+            model_name=config["model"],
+            temperature=0.2,
+            api_key=config.get("api_key")
+        )
+
+        # Afficher les fournisseurs disponibles une seule fois (optionnel)
+        if config == llm_configs[0]:
+            providers_info = explainer.get_available_providers()
+            for provider, info in providers_info.items():
+                print(f"\n{provider.upper()} - {info['description']}")
+                print(f"  Modèles recommandés: {', '.join(info['models_recommandés'])}")
+                print(f"  Nécessite API key: {'Oui' if info['nécessite_api_key'] else 'Non'}")
+
+        # Générer l'explication
+        explainer.explain_classification(
+            X_train, X_test, y_test, model, context,
+            class_names_dict=class_names,
+            instance_index=5,
+            num_features=4
+        )
 
 if __name__ == "__main__":
     print("=== DÉMONSTRATION EN CLASSIFICATION ===")
