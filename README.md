@@ -100,6 +100,12 @@ agent.explain_regression(...)
 ## Exemple Classification LIME
 
 ```python
+#installation des packages
+%pip install langchain-ollama langchain-google-genai langchain-openai langchain-anthropic
+%pip install lime shap
+```
+
+```python
 from explainer import LimeExplainerAgent
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
