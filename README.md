@@ -41,6 +41,11 @@ time.sleep(5)  # Allows service to initialize
 ## Utilisation
 
 ### Fonction pour LIME local
+
+LIME (Local Interpretable Model-agnostic Explanations) est une méthode d’explicabilité qui approxime localement un modèle complexe par un modèle simple et interprétable, afin d'expliquer les prédictions instance par instance.
+
+La fonction présentée instancie un agent LimeExplainerAgent, qui utilise un LLM pour générer des explications locales des prédictions d’un modèle de classification ou de régression via les méthodes explain_classification(...) ou explain_regression(...).
+
 ```python
 from explainer import LimeExplainerAgent
 agent = LimeExplainerAgent(
@@ -55,6 +60,11 @@ agent.explain_regression(...)
 ```
 
 ### Fonction pour SHAP local
+
+SHAP (SHapley Additive exPlanations) est une méthode d’explicabilité fondée sur la théorie des jeux, qui attribue à chaque caractéristique une contribution à la prédiction d’un modèle. En mode local, SHAP explique une prédiction individuelle en calculant la contribution marginale de chaque variable pour une observation donnée.
+
+La fonction suivante instancie un agent ShapExplainerAgent qui utilise SHAP en mode local pour fournir une explication détaillée instance par instance, via les méthodes explain_classification(...) ou explain_regression(...), en identifiant l'influence précise de chaque variable sur la prédiction du modèle.
+
 ```python
 from explainer import ShapExplainerAgent
 agent = ShapExplainerAgent(
@@ -69,6 +79,11 @@ agent.explain_regression(...)
 ```
 
 ### Fonction pour SHAP Global
+
+SHAP (SHapley Additive exPlanations) est une méthode d’explicabilité basée sur la théorie des jeux, qui mesure l'impact de chaque variable sur les prédictions d’un modèle. En mode global, SHAP agrège les explications locales sur l’ensemble des données pour fournir une vision d’ensemble de l’importance moyenne des variables.
+
+La fonction suivante instancie un agent ShapExplainerAgentGlobal qui peut être utilisé pour produire des explications globales en analysant les contributions moyennes des variables sur un ensemble d’exemples, permettant ainsi de mieux comprendre le comportement global du modèle.
+
 ```python
 from explainer import ShapExplainerAgentGlobal
 agent = ShapExplainerAgentGlobal(
