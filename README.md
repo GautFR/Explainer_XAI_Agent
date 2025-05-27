@@ -3,7 +3,7 @@
 Ce package fournit un agent LIME et un agent SHAP pour expliquer les prédictions de modèles de Machine Learning en langage naturel.
 
 ## Attention: installastion du serveur Ollama obligatoire
-Le package fonctionne grâce à Ollama. Il faut donc initialiser son serveur Ollama afin de pourvoir utilser le package.
+Le package fonctionne par défaut avec Ollama. Il faut donc initialiser son serveur Ollama afin de pourvoir utilser le package.
 Voici un code pour lancer un serveur local Ollama sur Google Colab.
 
 ```bash
