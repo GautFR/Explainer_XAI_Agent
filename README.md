@@ -48,15 +48,15 @@ La fonction présentée instancie un agent LimeExplainerAgent, qui utilise un LL
 
 ```python
 from explainer import LimeExplainerAgent
-agent = LimeExplainerAgent(
+explainer = LimeExplainerAgent(
             llm_provider=...,
             model_name=...,
             temperature=...,
             api_key=...
         )
-agent.explain_classification(...)
+explainer.explain_classification(...)
 #ou
-agent.explain_regression(...)
+explainer.explain_regression(...)
 ```
 
 ### Fonction pour SHAP local
@@ -67,15 +67,15 @@ La fonction suivante instancie un agent ShapExplainerAgent qui utilise SHAP en m
 
 ```python
 from explainer import ShapExplainerAgent
-agent = ShapExplainerAgent(
+explainer = ShapExplainerAgent(
             llm_provider=...,
             model_name=...,
             temperature=...,
             api_key=...
         )
-agent.explain_classification(...)
+explainer.explain_classification(...)
 #ou
-agent.explain_regression(...)
+explainer.explain_regression(...)
 ```
 
 ### Fonction pour SHAP Global
@@ -86,15 +86,15 @@ La fonction suivante instancie un agent ShapExplainerAgentGlobal qui peut être 
 
 ```python
 from explainer import ShapExplainerAgentGlobal
-agent = ShapExplainerAgentGlobal(
+explainer = ShapExplainerAgentGlobal(
             llm_provider=...,
             model_name=...,
             temperature=...,
             api_key=...
         )
-agent.explain_classification(...)
+explainer.explain_classification(...)
 #ou
-agent.explain_regression(...)
+explainer.explain_regression(...)
 ```
 
 ## Exemple Classification LIME
