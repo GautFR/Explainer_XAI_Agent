@@ -1,6 +1,6 @@
 # Explainer_XAI_Agent
 
-Ce package fournit un agent IA LIME et un agent SHAP pour expliquer les prédictions de modèles de Machine Learning en langage naturel.
+Ce package fournit un agent LIME et un agent SHAP pour expliquer les prédictions de modèles de Machine Learning en langage naturel.
 
 ## Attention: installastion du serveur Ollama obligatoire
 Le package fonctionne grâce à Ollama. Il faut donc initialiser son serveur Ollama afin de pourvoir utilser le package.
@@ -40,25 +40,43 @@ time.sleep(5)  # Allows service to initialize
 
 ## Utilisation
 
+### Fonction pour LIME local
 ```python
 from explainer import LimeExplainerAgent
-agent = LimeExplainerAgent()
+agent = LimeExplainerAgent(
+            llm_provider=...,
+            model_name=...,
+            temperature=...,
+            api_key=...
+        )
 agent.explain_classification(...)
 #ou
 agent.explain_regression(...)
 ```
 
+### Fonction pour SHAP local
 ```python
 from explainer import ShapExplainerAgent
-agent = ShapExplainerAgent()
+agent = ShapExplainerAgent(
+            llm_provider=...,
+            model_name=...,
+            temperature=...,
+            api_key=...
+        )
 agent.explain_classification(...)
 #ou
 agent.explain_regression(...)
 ```
 
+### Fonction pour SHAP Global
 ```python
 from explainer import ShapExplainerAgentGlobal
-agent = ShapExplainerAgentGlobal()
+agent = ShapExplainerAgentGlobal(
+            llm_provider=...,
+            model_name=...,
+            temperature=...,
+            api_key=...
+        )
 agent.explain_classification(...)
 #ou
 agent.explain_regression(...)
@@ -72,7 +90,9 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
+```
 
+```python
 def demo_classification_package():
     """Démontre l'utilisation de l'agent en classification avec le jeu de données Iris"""
     from sklearn.datasets import load_iris # Corrected indentation
